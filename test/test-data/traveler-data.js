@@ -2,7 +2,7 @@ const travelerData = [
 {
 "id": 1,
 "name": "Ham Leadbeater",
-"travelerType": "relaxer"
+"travelerType": "relaxer" 
 },
 {
 "id": 2,
