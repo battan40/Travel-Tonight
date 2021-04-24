@@ -69,5 +69,15 @@ const tripData = [
 "status": "approved",
 "suggestedActivities": []
 },
+{
+"id": 8,
+"userID": 1,
+"destinationID": 5,
+"travelers": 1,
+"date": "2020/5/28",
+"duration": 20,
+"status": "approved",
+"suggestedActivities": []
+},
 ]
 export default tripData;

@@ -41,27 +41,8 @@ describe('Trip', () => {
   });
 
   it('should store the coorelative destination data', () => {
-    expect(trip1.destination).to.deep.equal(
-      {
-      id: 49,
-      destination: 'Miami, Florida',
-      estimatedLodgingCostPerDay: 158,
-      estimatedFlightCostPerPerson: 275,
-      image: 'https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1573&q=80',
-      alt: 'sand with palm trees and tall buildings in the background'
-      }
-    );
-
-    expect(trip2.destination).to.deep.equal(
-      {
-      id: 7,
-      destination: "Paris, France",
-      estimatedLodgingCostPerDay: 100,
-      estimatedFlightCostPerPerson: 395,
-      image: "https://images.unsplash.com/photo-1524396309943-e03f5249f002?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80",
-      alt: "city during the day time with eiffel tower"
-      }
-    );
+    expect(trip1.destinationID).to.equal(49);
+    expect(trip2.destinationID).to.equal(7);
   });
 
   it('should confirm trip status approved', () => {
@@ -75,10 +56,10 @@ describe('Trip', () => {
   });
 
   it('should be able to calculate an estimation of trip costs', () => {
-      trip1.calculateTripCostEstimate();
+      trip1.calculateTripCostEstimate(destinationData);
       expect(trip1.cost).to.equal(1692.9);
 
-      trip2.calculateTripCostEstimate();
+      trip2.calculateTripCostEstimate(destinationData);
       expect(trip2.cost).to.equal(4152.5);
   });
 
