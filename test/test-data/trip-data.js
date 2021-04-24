@@ -1,5 +1,4 @@
 const tripData = [
-  [
 {
 "id": 1,
 "userID": 44,
@@ -71,3 +70,4 @@ const tripData = [
 "suggestedActivities": []
 },
 ]
+export default tripData;
