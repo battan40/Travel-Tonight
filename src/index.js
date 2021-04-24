@@ -10,4 +10,5 @@ window.addEventListener('load', fetchCalls);
 function fetchCalls() {
   apiCalls.getAllTravelers();
   apiCalls.getAllTrips();
+  apiCalls.getAllDestinations();
 }
