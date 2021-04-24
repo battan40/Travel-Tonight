@@ -13,6 +13,11 @@ class Trip {
     this.endDate;
   }
 
+  confirmTrip() {
+  console.log(this.status)
+  return (!this.status === 'approved' || !this.status === 'pending' ? false : true)
+}
+
   calculateTripCostEstimate() {
     const flightCost = this.destination.estimatedFlightCostPerPerson * this.travelerCount
     const lodgeCost = this.destination.estimatedLodgingCostPerDay * this.duration
