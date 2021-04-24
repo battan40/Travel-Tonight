@@ -1,7 +1,7 @@
-import domUpdates from './domUpdates.js';
-import Trip from './Trip.js'
 
-const getAllTravelers() {
+import Trip from './trip.js';
+
+const getAllTravelers = () => {
   return fetch('http://localhost:3001/api/v1/travelers')
   .then(response => response.json())
   .then(allTravelersData => {
@@ -10,7 +10,7 @@ const getAllTravelers() {
   .catch(err => console.log(err.message))
 }
 
-const getAllTrips() {
+const getAllTrips = () => {
   return fetch('http://localhost:3001/api/v1/trips')
   .then(response => response.json())
   .then(allTripsData => {
@@ -19,13 +19,13 @@ const getAllTrips() {
   .catch(err => console.log(err.message))
 }
 
-const getAllDestinations() {
+const getAllDestinations = () => {
   return fetch('http://localhost:3001/api/v1/destinations')
   .then(response => response.json())
   .then(allDestinationsData => {
-    return allTripsData.destinations;
+    return allDestinationsData.destinations;
   })
-  .catch(err = console.log(err.message))
+  .catch(err => console.log(err.message))
 }
 
 getAllTravelers();
