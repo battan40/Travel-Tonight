@@ -12,7 +12,7 @@ const tripData = [
 {
 "id": 2,
 "userID": 35,
-"destinationID": 25,
+"destinationID": 7,
 "travelers": 5,
 "date": "2020/10/04",
 "duration": 18,
