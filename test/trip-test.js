@@ -32,7 +32,7 @@ describe('Trip', () => {
     expect(trip1.suggestedActivities).to.deep.equal([]);
   });
 
-  it('should store the destination data', () => {
+  it('should store the coorelative destination data', () => {
     expect(trip1.destination).to.deep.equal(
       {
       id: 49,
@@ -41,15 +41,13 @@ describe('Trip', () => {
       estimatedFlightCostPerPerson: 275,
       image: 'https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1573&q=80',
       alt: 'sand with palm trees and tall buildings in the background'
-   }
-  );
+      }
+    );
   });
 
-  // it('should be able to locate trip start and end date', () => {
-  //
-  // })
-  //
-  // it('should confirm trip start date', () => {
-  //   //true else false
-  // })
-});
+  it('should be able to calculate an estimation of trip costs', () => {
+      trip1.calculateTripCostEstimate();
+      expect(trip1.cost).to.equal(1692.9);
+
+  });
+ });
