@@ -3,6 +3,9 @@ class Traveler {
     this.id = travelerData.id;
     this.name = travelerData.name;
     this.type = travelerData.travelerType;
+    this.allTrips = [];
+    this.upcoming = [];
+    this.pending = [];
   }
 
 }
