@@ -15,8 +15,21 @@ const getAllTrips() {
   .then(response => response.json())
   .then(allTripsData => {
     return allTripsData.trips;
-  .catch(err => console.log(err.message))
   })
+  .catch(err => console.log(err.message))
 }
 
-export { getAllTravelers };
+const getAllDestinations() {
+  return fetch('http://localhost:3001/api/v1/destinations')
+  .then(response => response.json())
+  .then(allDestinationsData => {
+    return allTripsData.destinations;
+  })
+  .catch(err = console.log(err.message))
+}
+
+getAllTravelers();
+getAllTrips();
+getAllDestinations();
+
+export { getAllTravelers, getAllTrips, getAllDestinations };
