@@ -48,6 +48,11 @@ describe('Trip', () => {
   it('should be able to calculate an estimation of trip costs', () => {
       trip1.calculateTripCostEstimate();
       expect(trip1.cost).to.equal(1692.9);
-
   });
- });
+
+
+  it('should be able to locate trip start and end date', () => {
+    trip1.seekTripDuration();
+    expect(trip1.startDate).to.equal(1568613600000)
+  });
+});

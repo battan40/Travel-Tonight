@@ -9,7 +9,8 @@ class Trip {
     this.status = tripData.status;
     this.suggestedActivities = tripData.suggestedActivities;
     this.cost = 0
-
+    this.startDate;
+    this.endDate;
   }
 
   calculateTripCostEstimate() {
@@ -19,6 +20,13 @@ class Trip {
     const totalEstimatedCost = subTotal + (subTotal * .10)
     this.cost = totalEstimatedCost;
       return this.cost;
+  }
+
+  seekTripDuration() {
+  let beginTrip = new Date(this.date)
+  let endTrip = new Date(this.date).setDate(new Date(this.date).getDate() + this.duration)
+  this.startDate = beginTrip.getTime();
+  this.EndDate = endTrip;
   }
 
 }
