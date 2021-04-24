@@ -14,7 +14,6 @@ class Trip {
   }
 
   confirmTrip() {
-  console.log(this.status)
   return (!this.status === 'approved' || !this.status === 'pending' ? false : true)
 }
 
