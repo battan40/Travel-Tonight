@@ -11,8 +11,8 @@ describe('Traveler', () => {
   let today = new Date();
 
   beforeEach(() => {
-    traveler1 = new Traveler(travelerData[0]);
-    traveler2 = new Traveler(travelerData[4]);
+    traveler1 = new Traveler(travelerData[0], today);
+    traveler2 = new Traveler(travelerData[4], today);
     allTripData = tripData.map(trip => new Trip(trip))
   });
 
@@ -38,8 +38,34 @@ describe('Traveler', () => {
   it('should be able to bring in and track all a travlers trips to all their destinations', () => {
     traveler1.compileAllTrips(allTripData, destinationData);
     expect(traveler1.allTrips[0]).to.be.an.instanceOf(Trip);
-    //expect(traveler1).allTrips.length).to.equal(0);
-    //expect(traveler1).allTrips[0]).to.deep.equal();
+    expect(traveler1.allTrips.length).to.equal(1);
+    expect(traveler1.allTrips[0]).to.deep.equal(
+      {
+      "cost": 0,
+      "date": "2020/5/28",
+      "destinationID": 5,
+      "duration": 20,
+      "id": 8,
+      "status": "approved",
+      "suggestedActivities": [],
+      "travelerCount": 1,
+      "userID": 1,
+      }
+    );
+  });
+
+  it('should put trips in order by their date and approval status', () => {
+    traveler1.compileAllTrips(allTripData, destinationData);
+    traveler1.orderByDate();
+    expect(traveler1.present.length).to.deep.equal(0);
+    expect(traveler1.upcoming.length).to.deep.equal(0);
+    expect(traveler1.past.length).to.deep.equal(0);
+    expect(traveler1.pending.length).to.deep.equal(0);
+  });
+
+  it('should calculate past annual trip expenses', () => {
+    traveler1.compileAllTrips(allTripData, destinationData);
+    expect(traveler1.calculateTripMoneySpentInYear()).to.equal(0)
 
   })
 
