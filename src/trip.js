@@ -1,8 +1,8 @@
 class Trip {
-  constructor(tripData, destinationData) {
+  constructor(tripData) {
     this.id = tripData.id;
     this.userID = tripData.userID;
-    this.destination = destinationData;
+    this.destinationID = tripData.destinationID;
     this.travelerCount = tripData.travelers;
     this.date = tripData.date;
     this.duration = tripData.duration;
@@ -17,9 +17,10 @@ class Trip {
   return (!this.status === 'approved' || !this.status === 'pending' ? false : true)
 }
 
-  calculateTripCostEstimate() {
-    const flightCost = this.destination.estimatedFlightCostPerPerson * this.travelerCount
-    const lodgeCost = this.destination.estimatedLodgingCostPerDay * this.duration
+  calculateTripCostEstimate(destinationData) {
+    const findTrip = destinationData.find(location => this.destinationID === location.id)
+    const flightCost = findTrip.estimatedFlightCostPerPerson * this.travelerCount
+    const lodgeCost = findTrip.estimatedLodgingCostPerDay * this.duration
     const subTotal = flightCost + lodgeCost
     const totalEstimatedCost = subTotal + (subTotal * .10)
     this.cost = totalEstimatedCost;
