@@ -27,7 +27,6 @@ class Traveler {
 
   orderByDate() {
       this.allTrips.forEach(trip => {
-        console.log(trip)
       let beginDate = trip.startDate;
       let endDate = trip.endDate;
       let today = this.todaysDate
@@ -43,19 +42,19 @@ class Traveler {
     })
   }
 
-  calculateTripMoneySpentInYear() {
+  calculateTripMoneySpentInYear(yearSelected, destinationData) {
     let pastYearTrips = this.allTrips.filter(trip => {
-      trip.seekTripDuration();
-      let begOfYear = new Date(this.todaysDate).setDate(new Date(this.todaysDate).getDate() - 365);
-      if(trip.StartDate > begOfYear) {
-        return trip;
-        }
-    const byYear = pastYearTrips.reduce((moneySpent, trip) => {
-      trip.calculateTripCostEstimate();
-      moneySpent += trip.cost;
-    }, 0)
-    return moneySpent;
+      return trip.date.includes(yearSelected);
     })
+    const byYear = pastYearTrips.reduce((moneySpent, trip) => {
+      const findDestination = destinationData.find(place => place.id ===  trip.destinationID)
+      const calculateFlightCost = findDestination.estimatedFlightCostPerPerson * trip.travelerCount
+      const calculateTravelCost = findDestination.estimatedLodgingCostPerDay * trip.duration * trip.travelerCount
+      const subTotal = (calculateFlightCost + calculateTravelCost) * .1
+      moneySpent += (subTotal + calculateFlightCost + calculateTravelCost)
+      return moneySpent
+    }, 0)
+    return byYear;
   }
 }
 export default Traveler;
