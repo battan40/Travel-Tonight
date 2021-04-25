@@ -1,5 +1,5 @@
 class Traveler {
-  constructor(travelerData, today) {
+  constructor(travelerData) {
     this.id = travelerData.id;
     this.name = travelerData.name;
     this.type = travelerData.travelerType;
@@ -8,7 +8,7 @@ class Traveler {
     this.upcoming = [];
     this.past = [];
     this.pending = [];
-    this.todaysDate = today.getTime()
+    this.todaysDate = new Date().getTime();
   }
 
   compileAllTrips(trips, destinations) {

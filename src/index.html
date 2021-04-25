@@ -10,10 +10,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Travel Tonight</h1>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <h1>Travel Tonight
+      <img src="./images/TealForestBackground.png" alt="Misty forest background with teal-green hue">
+    </h1>
+    <section class="login-form-box">
+      <h1>Welcome, Please sign in!</h1>
+        <article class="login-inputs">
+          <label for="user-name" class="login-label" role="search">User Name
+          <input type="text" placeholder="username" id="search-input" class="search-input">
+          </label>
+          <label for="password" class="login-label">Pass password
+          <input type="password" placeholder="password" id="password">
+          </label>
+          <button class="submit check-for-traveler">Login</button>
+        </article>
+    </section>
+    <main class="traveler-view hidden">
+      <header>
+        <div class="top-welcome-container">
+          <h1 class="greeting">Welcome Traveler!</h1>
+          <h2>Where will you go tonight?<h2>
+        </div>
+        <img src="./images/CliffBackGround.png" alt="Partners at the top of a cloudy cliff at dawn">
+      </header>
+      <section class="bottom-booking-container">
+        <h3>Book A New Vacation</h3>
+        <div class="booking">
+          <label for="start">Choose a Start Date:
+            <input required type="date" id="startDate" name="begin-trip" min="2021-04-21" max="2025-12-31">
+          </label>
+          <label for="duration">Trip Length:
+            <input required class="trip-duration" type="number" min="1">
+          </label>
+          <label for="number-travelers">Number of Travelers:
+            <input required class="number-travelers" type="number" min="1">
+          </label>
+          <label for="drop">Choose a Destination:
+            <select required class="drop" id"destination-drop-down">
+              <option value="0"> Make your choice</option>
+            </select>
+          </label>
+        </div>
+        <button class="book-trip" disabled>Book Trip</button>
+      </section>
+    </main>
   </body>
 </html>
