@@ -31,10 +31,17 @@ function fetchCalls() {
         let location = new Destination(destination)
         allDestinations.push(location)
       })
-      getTraveler()
+      makeTraveler();
+      createDate();
     })
 }
 
-function getTraveler() {
+function makeTraveler() {
+  currentTraveler.compileAllTrips(allTrips, allDestinations);
+  currentTraveler.orderTripsByDate();
 
+}
+
+function createDate() {
+  let today = new Date();
 }
