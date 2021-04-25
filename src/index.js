@@ -58,14 +58,3 @@ function displayGetaways(event){
   domUpdates.displayTrips(currentTraveler);
   displayTraveler();
 }
-
-// Before Iteration 2:
-// -Are all trips, past, present, future and upcoming on display on the dom?
-// -is the years expenses displayed on the dom?
-//
-// Iteration 2: Make a Trip Request
-// -select date, numb travelers, choose list of allDestinations
-// -see estimated cost
-// -submit by button click/tab-enter accomodation
-// -type of trip will change from defalut 'upcoming' to spending
-// -add new fetch calls

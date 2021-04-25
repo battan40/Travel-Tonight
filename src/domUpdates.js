@@ -54,7 +54,7 @@ displayTrips(currentTraveler, tripType) {
 userFriendlyDateDisplay(date) {
   let bestDateFormat = new Date(date).toLocaleString();
   return bestDateFormat;
-}
+},
 
 }
 
