@@ -1,11 +1,17 @@
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
+// $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(#0C1446, #87ACA3,  #2B7C85,  #175873) 100%);
+// ;
+
+$primary-background: #175873;
+//
+//
+// #0C1446  #87ACA3  #2B7C85  #175873
 
 body {
   background: $primary-background;
+  font-family: 'Poppins', sans-serif;
 }
 
 img {
-  height: 30%;
-  width: 30%;
+  height: 100%;
+  width: 100%;
 }
