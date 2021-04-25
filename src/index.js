@@ -6,7 +6,7 @@ import Traveler from './traveler.js';
 import Trip from './trip.js';
 import Destination from './destination.js'
 import domUpdates from './domUpdates.js'
-import { getAllTravelers, getAllTrips, getAllDestinations } from './apiCalls.js';
+import { getAllTravelers, getAllTrips, getAllDestinations, postANewTrip } from './apiCalls.js';
 
 let currentTraveler, today;
 let allTravelersData = [];
@@ -15,11 +15,11 @@ let allDestinations = [];
 const bookingButton = document.querySelector('.book-trip');
 const numTravelers = document.querySelector('.number-travelers');
 const tripDuration = document.querySelector('.trip-duration');
-const destinationInput = document.querySelector('#destinationDropDown');
+const destinationID = document.querySelector('#destinationDropDown');
 const startDate = document.querySelector('#tripStart');
 
 window.addEventListener('load', fetchCalls);
-window.addEventListener('click', displayGetaways)
+bookingButton.addEventListener('click', getReservation)
 
 function fetchCalls() {
   let allFetchData = [
@@ -55,28 +55,27 @@ function displayGetaways(event){
 }
 
 function getTripID() {
-  const getLastID = allTrips[allTrips.length -1]
-  console.log(getLastID)
+  return allTrips[allTrips.length -1].id + 1;
 }
 
 function getReservation() {
-  let numTravelers = +numTravelersInput.value;
-  let tripDuration = +duration.value;
-  let destinationID = +destinationInput.value;
+  let travelers = +numTravelers.value;
+  let duration = +tripDuration.value;
+  let destination = +destinationID.value;
   const reservationData = {
     id: getTripID(),
     userID: currentTraveler.id,
-    destinationID,
-    numTravelers,
-    date: startDate.value,
-    tripDuration,
+    destinationID: destination,
+    travelers: travelers,
+    date: startDate.value.split('-').join('/'),
+    duration: duration,
     status: 'pending',
     suggestedActivities: [],
   }
-  console.log(reservationData)
+  postANewTrip(reservationData);
 }
 
 function bookTripsHandling(event) {
-  domUpdates.resetTripRequestSection(numTravelers, duration, destinationInput, tripStart, bookingButton);
+  domUpdates.resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, bookingButton);
   //domUpdates.bookingButtonChangeUp();
 }
