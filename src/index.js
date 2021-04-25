@@ -5,6 +5,7 @@ import './images/TealForestBackground.png';
 import Traveler from './traveler.js';
 import Trip from './trip.js';
 import Destination from './destination.js'
+import domUpdates from './domUpdates.js'
 import { getAllTravelers, getAllTrips, getAllDestinations } from './apiCalls.js';
 
 let currentTraveler, today;
@@ -13,6 +14,7 @@ let allTrips = [];
 let allDestinations = [];
 
 window.addEventListener('load', fetchCalls);
+window.addEventListener('click', displayGetaways)
 
 function fetchCalls() {
   let allFetchData = [
@@ -31,10 +33,29 @@ function fetchCalls() {
         let location = new Destination(destination)
         allDestinations.push(location)
       })
-      getTraveler()
+      makeTraveler();
+      createDate();
+      domUpdates.applyGlobals(currentTraveler, today, allTrips, allDestinations);
+      displayTraveler();
     })
 }
 
-function getTraveler() {
+function makeTraveler() {
+  currentTraveler.compileAllTrips(allTrips, allDestinations);
+  currentTraveler.orderTripsByDate();
+}
 
+function createDate() {
+  let today = new Date();
+}
+
+function displayTraveler() {
+  domUpdates.displayCurrentTraveler(currentTraveler);
+  domUpdates.displayTrips(currentTraveler, 'upcoming');
+  domUpdates.displayExpenses(currentTraveler.calculateTripMoneySpentInYear())
+}
+
+function displayGetaways(event){
+  domUpdates.displayTrips(currentTraveler);
+  displayTraveler();
 }

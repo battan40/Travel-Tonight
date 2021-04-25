@@ -25,7 +25,7 @@ class Traveler {
     return this.allTrips;
   }
 
-  orderByDate() {
+  orderTripsByDate() {
       this.allTrips.forEach(trip => {
       trip.seekTripDuration()
       let beginDate = trip.startDate;
@@ -55,7 +55,10 @@ class Traveler {
       moneySpent += (subTotal + calculateFlightCost + calculateTravelCost)
       return moneySpent
     }, 0)
-    return byYear;
+    return byYear.toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
   }
 }
 export default Traveler;
