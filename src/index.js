@@ -12,6 +12,11 @@ let currentTraveler, today;
 let allTravelersData = [];
 let allTrips = [];
 let allDestinations = [];
+const bookingButton = document.querySelector('.book-trip');
+const numTravelers = document.querySelector('.number-travelers');
+const tripDuration = document.querySelector('.trip-duration');
+const destinationInput = document.querySelector('#destinationDropDown');
+const startDate = document.querySelector('#tripStart');
 
 window.addEventListener('load', fetchCalls);
 window.addEventListener('click', displayGetaways)
@@ -34,9 +39,8 @@ function fetchCalls() {
         allDestinations.push(location)
       })
       makeTraveler();
-      createDate();
-      domUpdates.applyGlobals(currentTraveler, today, allTrips, allDestinations);
-      displayTraveler();
+      domUpdates.accessGlobalInfo(currentTraveler, today, allTrips, allDestinations);
+      domUpdates.onLoadFire();
     })
 }
 
@@ -45,17 +49,34 @@ function makeTraveler() {
   currentTraveler.orderTripsByDate();
 }
 
-function createDate() {
-  let today = new Date();
-}
-
-function displayTraveler() {
-  domUpdates.displayCurrentTraveler(currentTraveler);
-  domUpdates.displayTrips(currentTraveler, 'upcoming');
-  domUpdates.displayExpenses(currentTraveler.calculateTripMoneySpentInYear())
-}
-
 function displayGetaways(event){
   domUpdates.displayTrips(currentTraveler);
   displayTraveler();
+}
+
+function getTripID() {
+  const getLastID = allTrips[allTrips.length -1]
+  console.log(getLastID)
+}
+
+function getReservation() {
+  let numTravelers = +numTravelersInput.value;
+  let tripDuration = +duration.value;
+  let destinationID = +destinationInput.value;
+  const reservationData = {
+    id: getTripID(),
+    userID: currentTraveler.id,
+    destinationID,
+    numTravelers,
+    date: startDate.value,
+    tripDuration,
+    status: 'pending',
+    suggestedActivities: [],
+  }
+  console.log(reservationData)
+}
+
+function bookTripsHandling(event) {
+  domUpdates.resetTripRequestSection(numTravelers, duration, destinationInput, tripStart, bookingButton);
+  //domUpdates.bookingButtonChangeUp();
 }
