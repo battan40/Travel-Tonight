@@ -11,8 +11,8 @@ describe('Traveler', () => {
   let today = new Date();
 
   beforeEach(() => {
-    traveler1 = new Traveler(travelerData[0], today);
-    traveler2 = new Traveler(travelerData[4], today);
+    traveler1 = new Traveler(travelerData[0]);
+    traveler2 = new Traveler(travelerData[4]);
     allTripData = tripData.map(trip => new Trip(trip))
   });
 
