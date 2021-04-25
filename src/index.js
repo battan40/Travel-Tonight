@@ -33,18 +33,8 @@ function fetchCalls() {
       })
       getTraveler()
     })
-  // getAllTravelers().then(data => {
-  //   currentTraveler = data[0]
-  // }).then(getTraveler());
-  // console.log(allTravelersData)
-  // allTrips = getAllTrips();
-  // allDestinations = getAllDestinations();
-  //getTraveler();
 }
 
 function getTraveler() {
-  //currentTraveler = allTravelers[0]
-  console.log(currentTraveler)
-  console.log(allTrips)
-  console.log(allDestinations)
+
 }
