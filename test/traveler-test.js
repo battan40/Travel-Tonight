@@ -59,7 +59,7 @@ describe('Traveler', () => {
     traveler1.orderByDate();
     expect(traveler1.present.length).to.deep.equal(0);
     expect(traveler1.upcoming.length).to.deep.equal(0);
-    expect(traveler1.past.length).to.deep.equal(0);
+    expect(traveler1.past.length).to.deep.equal(1);
     expect(traveler1.pending.length).to.deep.equal(0);
   });
 

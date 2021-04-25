@@ -8,7 +8,7 @@ class Traveler {
     this.upcoming = [];
     this.past = [];
     this.pending = [];
-    this.todaysDate = today.getTime();
+    this.todaysDate = today.getTime()
   }
 
   compileAllTrips(trips, destinations) {
@@ -27,9 +27,10 @@ class Traveler {
 
   orderByDate() {
       this.allTrips.forEach(trip => {
+      trip.seekTripDuration()
       let beginDate = trip.startDate;
       let endDate = trip.endDate;
-      let today = this.todaysDate
+      let today = this.todaysDate;
       if(beginDate <= today  && today <= endDate && trip.status === 'approved') {
         this.present.push(trip);
       } else if (today < trip.startDate && trip.status === 'approved'){
