@@ -8,14 +8,14 @@ class Trip {
     this.duration = tripData.duration;
     this.status = tripData.status;
     this.suggestedActivities = tripData.suggestedActivities;
-    this.cost = 0
+    this.cost = 0;
     this.startDate;
     this.endDate;
   }
 
   confirmTrip() {
   return (!this.status === 'approved' || !this.status === 'pending' ? false : true)
-}
+  }
 
   calculateTripCostEstimate(destinationData) {
     const findTrip = destinationData.find(location => this.destinationID === location.id)
