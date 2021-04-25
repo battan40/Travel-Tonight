@@ -55,7 +55,10 @@ class Traveler {
       moneySpent += (subTotal + calculateFlightCost + calculateTravelCost)
       return moneySpent
     }, 0)
-    return byYear;
+    return byYear.toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
   }
 }
 export default Traveler;
