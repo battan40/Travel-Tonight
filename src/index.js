@@ -52,6 +52,7 @@ function createDate() {
 function displayTraveler() {
   domUpdates.displayCurrentTraveler(currentTraveler);
   domUpdates.displayTrips(currentTraveler, 'upcoming');
+  domUpdates.displayExpenses(currentTraveler.calculateTripMoneySpentInYear())
 }
 
 function displayGetaways(event){
