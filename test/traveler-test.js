@@ -59,14 +59,13 @@ describe('Traveler', () => {
     traveler1.orderByDate();
     expect(traveler1.present.length).to.deep.equal(0);
     expect(traveler1.upcoming.length).to.deep.equal(0);
-    expect(traveler1.past.length).to.deep.equal(0);
+    expect(traveler1.past.length).to.deep.equal(1);
     expect(traveler1.pending.length).to.deep.equal(0);
   });
 
   it('should calculate past annual trip expenses', () => {
     traveler1.compileAllTrips(allTripData, destinationData);
-    expect(traveler1.calculateTripMoneySpentInYear()).to.equal(0)
-
-  })
+    expect(traveler1.calculateTripMoneySpentInYear('2020', destinationData)).to.equal(4015)
+  });
 
 });
