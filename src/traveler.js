@@ -25,7 +25,7 @@ class Traveler {
     return this.allTrips;
   }
 
-  orderByDate() {
+  orderTripsByDate() {
       this.allTrips.forEach(trip => {
       trip.seekTripDuration()
       let beginDate = trip.startDate;

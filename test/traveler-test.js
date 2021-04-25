@@ -56,7 +56,7 @@ describe('Traveler', () => {
 
   it('should put trips in order by their date and approval status', () => {
     traveler1.compileAllTrips(allTripData, destinationData);
-    traveler1.orderByDate();
+    traveler1.orderTripsByDate();
     expect(traveler1.present.length).to.deep.equal(0);
     expect(traveler1.upcoming.length).to.deep.equal(0);
     expect(traveler1.past.length).to.deep.equal(1);
