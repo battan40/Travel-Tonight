@@ -14,7 +14,7 @@ describe('Trip', () => {
   });
 
   it('should be a function', () => {
-      expect(Trip).to.be.a('function');
+    expect(Trip).to.be.a('function');
   });
 
   it('should instantiate a new Trip', () => {
@@ -56,11 +56,11 @@ describe('Trip', () => {
   });
 
   it('should be able to calculate an estimation of trip costs', () => {
-      trip1.calculateTripCostEstimate(destinationData);
-      expect(trip1.cost).to.equal(1692.9);
+    trip1.calculateTripCostEstimate(destinationData);
+    expect(trip1.cost).to.equal(1692.9);
 
-      trip2.calculateTripCostEstimate(destinationData);
-      expect(trip2.cost).to.equal(4152.5);
+    trip2.calculateTripCostEstimate(destinationData);
+    expect(trip2.cost).to.equal(4152.5);
   });
 
 

@@ -14,7 +14,7 @@ class Trip {
   }
 
   confirmTrip() {
-  return (!this.status === 'approved' || !this.status === 'pending' ? false : true)
+    return (!this.status === 'approved' || !this.status === 'pending' ? false : true)
   }
 
   calculateTripCostEstimate(destinationData) {

@@ -16,7 +16,7 @@ class Traveler {
     let currentDestination;
     tripsByFilter.forEach(trip => {
       destinations.forEach(place => {
-        if(trip.destinationID === place.id) {
+        if (trip.destinationID === place.id) {
           currentDestination = place;
           this.allTrips.push(trip);
         }
@@ -26,19 +26,19 @@ class Traveler {
   }
 
   orderTripsByDate() {
-      this.allTrips.forEach(trip => {
+    this.allTrips.forEach(trip => {
       trip.seekTripDuration()
       let beginDate = trip.startDate;
       let endDate = trip.endDate;
       let today = this.todaysDate;
-      if(beginDate <= today  && today <= endDate && trip.status === 'approved') {
+      if (beginDate <= today  && today <= endDate && trip.status === 'approved') {
         this.present.push(trip);
-      } else if (today < trip.startDate && trip.status === 'approved'){
-          this.upcoming.push(trip);
+      } else if (today < trip.startDate && trip.status === 'approved') {
+        this.upcoming.push(trip);
       } else if (endDate < today && trip.status === 'approved') {
-          this.past.push(trip);
+        this.past.push(trip);
       } else if (trip.status === 'pending') {
-          this.pending.push(trip)
+        this.pending.push(trip)
       }
     })
   }
