@@ -60,5 +60,6 @@ class Traveler {
       maximumFractionDigits: 2,
     });
   }
+
 }
 export default Traveler;
