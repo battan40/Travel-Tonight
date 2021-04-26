@@ -11,7 +11,7 @@ const getAllTravelers = () => {
 const getSingleTraveler = (id) => {
   return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
   .then(response => response.json())
-  .then(singleTravelerData => {
+  .then(singleTravelerData => { 
     return singleTravelerData
   })
   .catch(err => console.log(err.message))
