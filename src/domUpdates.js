@@ -27,12 +27,6 @@ toggleLogInPage() {
   signedInView.classList.toggle('hidden');
 },
 
-// showErrorMessageFromFetchCalls(messageParam, classNameParam) {
-//   let whateverError = document.querySelector(classNameParam);
-//   whateverError.classList.remove('hidden');
-//   whateverError.innerText = message;
-// }
-
 createDateStopInCalendar() {
   const minDate = document.querySelector('#tripStart');
     return minDate.setAttribute('min', new Date(Date.now()).toISOString().split('T')[0])
