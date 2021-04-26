@@ -9,7 +9,6 @@ import domUpdates from './domUpdates.js'
 import { getSingleTraveler, getAllTrips, getAllDestinations, postANewTrip } from './apiCalls.js';
 
 let currentTraveler, today;
-//let allTravelersData = [];
 let allTrips = [];
 let allDestinations = [];
 const bookingButton = document.querySelector('.book-trip');
@@ -61,22 +60,17 @@ function verifyCreditialsMatch() {
   const logInErrMsg = document.querySelector('#logInMsg');
   let traveler = nameInput.value.slice(0, 8);
   let travelerID = nameInput.value.substring(8)
-    if(password.value === 'travel2020' && traveler === 'traveler' && travelerID >= 1 && travelerID <= 50) {
-      fetchCalls(travelerID);
-      logInErrMsg.classList.add('hidden');
-      domUpdates.toggleLogInPage();
-    } else {
+  if (passwordInput.value === 'travel2020' && traveler === 'traveler' && travelerID >= 1 && travelerID <= 50) {
+    fetchCalls(travelerID);
+    logInErrMsg.classList.add('hidden');
+    domUpdates.toggleLogInPage();
+  } else {
     logInErrMsg.classList.remove('hidden');
   }
 }
 
-// function displayGetaways(){
-//   domUpdates.displayTrips(currentTraveler);
-//   displayTraveler();
-// }
-
 function getTripID() {
-  return allTrips[allTrips.length -1].id + 1;
+  return allTrips[allTrips.length - 1].id + 1;
 }
 
 function getReservation() {
@@ -90,20 +84,20 @@ function makeBookRequest() {
   let travelers = +numTravelers.value;
   let duration = +tripDuration.value;
   let destination = +destinationID.value;
-    return {
+  return {
     id: getTripID(),
     userID: currentTraveler.id,
     destinationID: destination,
-    travelers: travelers,
+    travelers,
     date: startDate.value.split('-').join('/'),
-    duration: duration,
+    duration,
     status: 'pending',
     suggestedActivities: [],
   }
 }
 
 function validateTripChoice() {
-  if(numTravelers.value > 0 && tripDuration.value > 0 && destinationID.value > 0 && startDate.value !== '') {
+  if (numTravelers.value > 0 && tripDuration.value > 0 && destinationID.value > 0 && startDate.value !== '') {
     const reservationData = new Trip(makeBookRequest())
     const estimatedCost = reservationData.calculateTripCostEstimate(allDestinations)
     messageDisplay.innerText = `Estimated Trip cost is $${estimatedCost}`
@@ -112,8 +106,4 @@ function validateTripChoice() {
     messageDisplay.innerText = `A trip must have a valid Date, number of travelers, duration of trip, and destination selected.  Please finish your selection.`
     bookingButton.disabled = true;
   }
-}
-
-function bookTripsHandling(event) {
-  domUpdates.resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay);
 }
