@@ -10,30 +10,41 @@ const getAllTravelers = () => {
 
 const getSingleTraveler = (id) => {
   return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
-    .then(response => response.json())
-    .then(singleTravelerData => { 
+    .then(response => {
+      if(response.ok) {
+        return  response.json()
+      }
+    })
+    .then(singleTravelerData => {
       return singleTravelerData
     })
-    .catch(err => console.log(err.message))
+    .catch(_err => "Sorry we were not able to find this traveler, please try again")
 }
 
 const getAllTrips = () => {
   return fetch('http://localhost:3001/api/v1/trips')
-    .then(response => response.json())
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      }
+    })
     .then(allTripsData => {
-
       return allTripsData.trips;
     })
-    .catch(err => console.log(err.message))
+    .catch(_err => "Sorry we are having trouble getting all trip information, please try again later")
 }
 
 const getAllDestinations = () => {
   return fetch('http://localhost:3001/api/v1/destinations')
-    .then(response => response.json())
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+    }
+  })
     .then(allDestinationsData => {
       return allDestinationsData.destinations;
     })
-    .catch(err => console.log(err.message))
+    .catch(_err => "Sorry we are having trouble getting all the destination information, please try back later")
 }
 
 const postANewTrip = (resoData) => {
@@ -45,11 +56,15 @@ const postANewTrip = (resoData) => {
     body: JSON.stringify(resoData),
   }
   return fetch('http://localhost:3001/api/v1/trips', init)
-    .then(response => response.json())
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      }
+    })
     .then(addNewTrip => {
       return addNewTrip.trip;
     })
-    .catch(err => console.log(err.message))
+    .catch(_err => "Sorry we are having trouble reaching the server today, please check in with us in a little while")
 
 }
 
