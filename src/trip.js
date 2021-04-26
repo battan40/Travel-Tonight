@@ -24,7 +24,10 @@ class Trip {
     const subTotal = flightCost + lodgeCost
     const totalEstimatedCost = subTotal + (subTotal * .10)
     this.cost = totalEstimatedCost;
-      return this.cost;
+    return this.cost.toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
   }
 
   seekTripDuration() {

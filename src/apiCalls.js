@@ -27,4 +27,21 @@ const getAllDestinations = () => {
   .catch(err => console.log(err.message))
 }
 
-export { getAllTravelers, getAllTrips, getAllDestinations };
+const postANewTrip = (resoData) => {
+  const init = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(resoData),
+  }
+  return fetch('http://localhost:3001/api/v1/trips', init)
+  .then(response => response.json())
+  .then(addNewTrip => {
+    return addNewTrip.trip;
+  })
+  .catch(err => console.log(err.message))
+
+}
+
+export { getAllTravelers, getAllTrips, getAllDestinations, postANewTrip };

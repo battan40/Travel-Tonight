@@ -65,7 +65,7 @@ describe('Traveler', () => {
 
   it('should calculate past annual trip expenses', () => {
     traveler1.compileAllTrips(allTripData, destinationData);
-    expect(traveler1.calculateTripMoneySpentInYear('2020', destinationData)).to.equal(4015)
+    expect(traveler1.calculateTripMoneySpentInYear('2020', destinationData)).to.equal('4,015.00')
   });
 
 });
