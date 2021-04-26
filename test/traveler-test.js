@@ -17,7 +17,7 @@ describe('Traveler', () => {
   });
 
   it('should be a function', () => {
-      expect(Traveler).to.be.a('function');
+    expect(Traveler).to.be.a('function');
   });
 
   it('should instantiate a traveler', () => {
@@ -41,15 +41,15 @@ describe('Traveler', () => {
     expect(traveler1.allTrips.length).to.equal(1);
     expect(traveler1.allTrips[0]).to.deep.equal(
       {
-      "cost": 0,
-      "date": "2020/5/28",
-      "destinationID": 5,
-      "duration": 20,
-      "id": 8,
-      "status": "approved",
-      "suggestedActivities": [],
-      "travelerCount": 1,
-      "userID": 1,
+        "cost": 0,
+        "date": "2020/5/28",
+        "destinationID": 5,
+        "duration": 20,
+        "id": 8,
+        "status": "approved",
+        "suggestedActivities": [],
+        "travelerCount": 1,
+        "userID": 1,
       }
     );
   });
