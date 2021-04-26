@@ -16,7 +16,13 @@ onLoadFire() {
   this.displayCurrentTraveler(this.currentTraveler);
   this.displayTrips(this.currentTraveler, 'upcoming');
   this.displayExpenses(this.currentTraveler.calculateTripMoneySpentInYear());
+  this.createDateStopInCalendar();
   this.destinationDropDownForBooking();
+},
+
+createDateStopInCalendar() {
+  const minDate = document.querySelector('#tripStart');
+    return minDate.setAttribute('min', new Date(Date.now()).toISOString().split('T')[0])
 },
 
 userFriendlyDateDisplay(date) {
@@ -47,7 +53,7 @@ displayTrips(currentTraveler, tripType) {
       tripDetails += `
       <article class="trip-cards">
         <div class="image-wrapper">
-        <img class="unique-trip-image" src="${specificDestination.image} alt=${specificDestination.alt}"
+        <img class="unique-trip-image" src="${specificDestination.image}" alt="${specificDestination.alt}"
         </div>
         <h3 class="destination"> ${specificDestination.destination}</h3>
         <h4>Trip Date:  ${trip.date}</h4>
@@ -62,12 +68,6 @@ displayTrips(currentTraveler, tripType) {
   }
     tripDisplay.insertAdjacentHTML('beforeend', tripDetails)
 },
-
-//Do you need to display filtered trip type?
-
-// bookingButtonChangeUp () {
-//
-// },
 
 destinationDropDownForBooking() {
   const dropDownList = document.querySelector('#destinationDropDown');
@@ -90,24 +90,12 @@ destinationDropDownForBooking() {
 },
 
 
-displayCostOfNewTrip() {
-//i'm already doing a lot of this above...
-  const specificDestination = this.allDestinations.find(destination => destination.id === trip.destinationID)
-  const showDate = this.userFriendlyDateDisplay(trip.date);
-//can i find the class bubble event without a parameter?  If so then i can just change the innertext to include:
-//something.classlist.remove('hidden');
-//something.innertext = `Estimated cost for this trip ${trip.cost}`
-//something.classlist.add('book')
-},
-
-resetTripRequestSection() {
-  trip.startDate.value = '';
-  trip.duration.value = '';
-  trip.travelerCount.value = '';
-  trip.destination.value = '';
-  button.classList.remove('book');
-  something.innerText = 'Please make a choice';
-  something.classList.add('hidden');
+resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay) {
+  tripStart.value = '';
+  tripDuration.value = '';
+  numTravelers.value = '';
+  destinationID.value = '';
+  messageDisplay.innerText = '';
 },
 
 }
