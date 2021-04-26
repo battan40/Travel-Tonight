@@ -17,9 +17,12 @@ const numTravelers = document.querySelector('.number-travelers');
 const tripDuration = document.querySelector('.trip-duration');
 const destinationID = document.querySelector('#destinationDropDown');
 const startDate = document.querySelector('#tripStart');
+const bookingContainer = document.querySelector('.booking');
+const messageDisplay = document.querySelector('#domMessage');
 
 window.addEventListener('load', fetchCalls);
-bookingButton.addEventListener('click', getReservation)
+bookingButton.addEventListener('click', getReservation);
+bookingContainer.addEventListener('change', validateTripChoice)
 
 function fetchCalls() {
   let allFetchData = [
@@ -59,10 +62,17 @@ function getTripID() {
 }
 
 function getReservation() {
+  const reservationData = makeBookRequest()
+  postANewTrip(reservationData);
+  domUpdates.resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay);
+  fetchCalls();
+}
+
+function makeBookRequest() {
   let travelers = +numTravelers.value;
   let duration = +tripDuration.value;
   let destination = +destinationID.value;
-  const reservationData = {
+    return {
     id: getTripID(),
     userID: currentTraveler.id,
     destinationID: destination,
@@ -72,10 +82,20 @@ function getReservation() {
     status: 'pending',
     suggestedActivities: [],
   }
-  postANewTrip(reservationData);
+}
+
+function validateTripChoice() {
+  if(numTravelers.value > 0 && tripDuration.value > 0 && destinationID.value > 0 && startDate.value !== '') {
+    const reservationData = new Trip(makeBookRequest())
+    const estimatedCost = reservationData.calculateTripCostEstimate(allDestinations)
+    messageDisplay.innerText = `Estimated Trip cost is $${estimatedCost}`
+    bookingButton.disabled = false;
+  } else {
+    messageDisplay.innerText = `A trip must have a valid Date, number of travelers, duration of trip, and destination selected.  Please finish your selection.`
+    bookingButton.disabled = true;
+  }
 }
 
 function bookTripsHandling(event) {
-  domUpdates.resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, bookingButton);
-  //domUpdates.bookingButtonChangeUp();
+  domUpdates.resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay);
 }
