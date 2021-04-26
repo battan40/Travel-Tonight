@@ -52,13 +52,8 @@ function makeTraveler() {
   currentTraveler.orderTripsByDate();
 }
 
-function displayGetaways(event){
-  domUpdates.displayTrips(currentTraveler);
-  displayTraveler();
-}
-
 function getTripID() {
-  return allTrips[allTrips.length -1].id + 1;
+  return allTrips[allTrips.length - 1].id + 1;
 }
 
 function getReservation() {
@@ -72,20 +67,20 @@ function makeBookRequest() {
   let travelers = +numTravelers.value;
   let duration = +tripDuration.value;
   let destination = +destinationID.value;
-    return {
+  return {
     id: getTripID(),
     userID: currentTraveler.id,
     destinationID: destination,
-    travelers: travelers,
+    travelers,
     date: startDate.value.split('-').join('/'),
-    duration: duration,
+    duration,
     status: 'pending',
     suggestedActivities: [],
   }
 }
 
 function validateTripChoice() {
-  if(numTravelers.value > 0 && tripDuration.value > 0 && destinationID.value > 0 && startDate.value !== '') {
+  if (numTravelers.value > 0 && tripDuration.value > 0 && destinationID.value > 0 && startDate.value !== '') {
     const reservationData = new Trip(makeBookRequest())
     const estimatedCost = reservationData.calculateTripCostEstimate(allDestinations)
     messageDisplay.innerText = `Estimated Trip cost is $${estimatedCost}`
