@@ -60,6 +60,7 @@ displayTrips(currentTraveler) {
   tripDisplay.innerHTML = '';
   let tripDetails = '';
   if (currentTraveler.allTrips.length > 0) {
+    currentTraveler.allTrips.reverse();
     currentTraveler.allTrips.forEach(trip => {
       const specificDestination = this.allDestinations.find(destination => destination.id === trip.destinationID)
       const showDate = this.userFriendlyDateDisplay(trip.date)

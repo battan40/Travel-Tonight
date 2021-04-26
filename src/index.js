@@ -9,7 +9,7 @@ import domUpdates from './domUpdates.js'
 import { getSingleTraveler, getAllTrips, getAllDestinations, postANewTrip } from './apiCalls.js';
 
 let currentTraveler, today;
-let allTravelersData = [];
+//let allTravelersData = [];
 let allTrips = [];
 let allDestinations = [];
 const bookingButton = document.querySelector('.book-trip');
@@ -26,6 +26,8 @@ bookingContainer.addEventListener('change', validateTripChoice);
 logInButton.addEventListener('click', verifyCreditialsMatch);
 
 function fetchCalls(id) {
+  allTrips = [];
+  allDestinations = [];
   let allFetchData = [
     getSingleTraveler(id),
     getAllTrips(),
@@ -68,10 +70,10 @@ function verifyCreditialsMatch() {
   }
 }
 
-function displayGetaways(){
-  domUpdates.displayTrips(currentTraveler);
-  displayTraveler();
-}
+// function displayGetaways(){
+//   domUpdates.displayTrips(currentTraveler);
+//   displayTraveler();
+// }
 
 function getTripID() {
   return allTrips[allTrips.length -1].id + 1;
@@ -81,7 +83,7 @@ function getReservation() {
   const reservationData = makeBookRequest()
   postANewTrip(reservationData);
   domUpdates.resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay);
-  fetchCalls();
+  fetchCalls(currentTraveler.id);
 }
 
 function makeBookRequest() {
