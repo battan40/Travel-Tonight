@@ -8,6 +8,15 @@ const getAllTravelers = () => {
     .catch(err => console.log(err.message))
 }
 
+const getSingleTraveler = (id) => {
+  return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
+    .then(response => response.json())
+    .then(singleTravelerData => { 
+      return singleTravelerData
+    })
+    .catch(err => console.log(err.message))
+}
+
 const getAllTrips = () => {
   return fetch('http://localhost:3001/api/v1/trips')
     .then(response => response.json())
@@ -44,4 +53,4 @@ const postANewTrip = (resoData) => {
 
 }
 
-export { getAllTravelers, getAllTrips, getAllDestinations, postANewTrip };
+export { getSingleTraveler, getAllTrips, getAllDestinations, postANewTrip };

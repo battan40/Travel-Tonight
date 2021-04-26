@@ -8,7 +8,6 @@ import Trip from '../src/trip.js'
 
 describe('Traveler', () => {
   let traveler1, traveler2, allTripData;
-  let today = new Date();
 
   beforeEach(() => {
     traveler1 = new Traveler(travelerData[0]);

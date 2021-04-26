@@ -20,6 +20,13 @@ const domUpdates = {
     this.destinationDropDownForBooking();
   },
 
+  toggleLogInPage() {
+    const logInPage = document.querySelector('.login-form-box');
+    const signedInView = document.querySelector('.signed-in-view')
+    logInPage.classList.toggle('hidden');
+    signedInView.classList.toggle('hidden');
+  },
+
   createDateStopInCalendar() {
     const minDate = document.querySelector('#tripStart');
     return minDate.setAttribute('min', new Date(Date.now()).toISOString().split('T')[0])
@@ -42,11 +49,12 @@ const domUpdates = {
     yearlyTripExpenses.innerText = `Total trip expenses this year: $${this.currentTraveler.calculateTripMoneySpentInYear('2020', this.allDestinations)}`
   },
 
-  displayTrips(currentTraveler, tripType) {
+  displayTrips(currentTraveler) {
     const tripDisplay = document.querySelector('.trip-display-card-container');
     tripDisplay.innerHTML = '';
     let tripDetails = '';
     if (currentTraveler.allTrips.length > 0) {
+      currentTraveler.allTrips.reverse();
       currentTraveler.allTrips.forEach(trip => {
         const specificDestination = this.allDestinations.find(destination => destination.id === trip.destinationID)
         const showDate = this.userFriendlyDateDisplay(trip.date)
@@ -89,7 +97,6 @@ const domUpdates = {
     dropDownList.insertAdjacentHTML('beforeend', locationsToBook)
   },
 
-
   resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay) {
     tripStart.value = '';
     tripDuration.value = '';
@@ -97,7 +104,6 @@ const domUpdates = {
     destinationID.value = '';
     messageDisplay.innerText = '';
   },
-
 }
 
 export default domUpdates;
