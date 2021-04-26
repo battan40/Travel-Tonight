@@ -6,7 +6,7 @@ import Traveler from './traveler.js';
 import Trip from './trip.js';
 import Destination from './destination.js'
 import domUpdates from './domUpdates.js'
-import { getAllTravelers, getAllTrips, getAllDestinations, postANewTrip } from './apiCalls.js';
+import { getSingleTraveler, getAllTrips, getAllDestinations, postANewTrip } from './apiCalls.js';
 
 let currentTraveler, today;
 let allTravelersData = [];
@@ -19,20 +19,21 @@ const destinationID = document.querySelector('#destinationDropDown');
 const startDate = document.querySelector('#tripStart');
 const bookingContainer = document.querySelector('.booking');
 const messageDisplay = document.querySelector('#domMessage');
+const logInButton = document.querySelector('.check-for-traveler')
 
-window.addEventListener('load', fetchCalls);
 bookingButton.addEventListener('click', getReservation);
-bookingContainer.addEventListener('change', validateTripChoice)
+bookingContainer.addEventListener('change', validateTripChoice);
+logInButton.addEventListener('click', verifyCreditialsMatch);
 
-function fetchCalls() {
+function fetchCalls(id) {
   let allFetchData = [
-    getAllTravelers(),
+    getSingleTraveler(id),
     getAllTrips(),
     getAllDestinations()
   ]
   Promise.all(allFetchData)
     .then(data => {
-      currentTraveler = new Traveler(data[0][1]);
+      currentTraveler = new Traveler(data[0]);
       data[1].forEach(trip => {
         let vacation = new Trip(trip)
         allTrips.push(vacation)
@@ -52,7 +53,22 @@ function makeTraveler() {
   currentTraveler.orderTripsByDate();
 }
 
-function displayGetaways(event){
+function verifyCreditialsMatch() {
+  const passwordInput = document.querySelector('#password');
+  const nameInput = document.querySelector('#userNameSearch');
+  const logInErrMsg = document.querySelector('#logInMsg');
+  let traveler = nameInput.value.slice(0, 8);
+  let travelerID = nameInput.value.substring(8)
+    if(password.value === 'travel2020' && traveler === 'traveler' && travelerID >= 1 && travelerID <= 50) {
+      fetchCalls(travelerID);
+      logInErrMsg.classList.add('hidden');
+      domUpdates.toggleLogInPage();
+    } else {
+    logInErrMsg.classList.remove('hidden');
+  }
+}
+
+function displayGetaways(){
   domUpdates.displayTrips(currentTraveler);
   displayTraveler();
 }
