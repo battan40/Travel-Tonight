@@ -15,17 +15,18 @@
     </h1>
     <section class="login-form-box">
       <h1>Welcome, Please sign in</h1>
-        <article class="login-inputs">
+        <article class="login-inputs" id="logIn">
           <label for="user-name" class="login-label" role="search">UserName:
-          <input type="text" placeholder="username" id="search-input" class="search-input">
+          <input type="text" placeholder="username" id="userNameSearch" class="search-input">
           </label>
           <label for="password" class="login-label">Password:
           <input type="password" placeholder="password" id="password">
           </label>
-          <button class="submit check-for-traveler">Login</button>
+          <button class="check-for-traveler">Login</button>
+          <p class="hidden" id="logInMsg">Please enter a valid user name or password</p>
         </article>
     </section>
-    <main class="traveler-view hidden">
+    <main class="signed-in-view hidden">
       <header>
         <div class="top-welcome-container">
           <h1 class="greeting">Welcome Traveler</h1>
