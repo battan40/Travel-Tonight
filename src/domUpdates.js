@@ -20,6 +20,19 @@ onLoadFire() {
   this.destinationDropDownForBooking();
 },
 
+toggleLogInPage() {
+  const logInPage = document.querySelector('.login-form-box');
+  const signedInView = document.querySelector('.signed-in-view')
+  logInPage.classList.toggle('hidden');
+  signedInView.classList.toggle('hidden');
+},
+
+// showErrorMessageFromFetchCalls(messageParam, classNameParam) {
+//   let whateverError = document.querySelector(classNameParam);
+//   whateverError.classList.remove('hidden');
+//   whateverError.innerText = message;
+// }
+
 createDateStopInCalendar() {
   const minDate = document.querySelector('#tripStart');
     return minDate.setAttribute('min', new Date(Date.now()).toISOString().split('T')[0])
@@ -42,7 +55,7 @@ displayExpenses() {
   yearlyTripExpenses.innerText = `Total trip expenses this year: $${this.currentTraveler.calculateTripMoneySpentInYear('2020', this.allDestinations)}`
 },
 
-displayTrips(currentTraveler, tripType) {
+displayTrips(currentTraveler) {
   const tripDisplay = document.querySelector('.trip-display-card-container');
   tripDisplay.innerHTML = '';
   let tripDetails = '';
@@ -88,7 +101,6 @@ destinationDropDownForBooking() {
   })
   dropDownList.insertAdjacentHTML('beforeend', locationsToBook)
 },
-
 
 resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay) {
   tripStart.value = '';
