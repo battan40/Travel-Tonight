@@ -22,7 +22,7 @@ const domUpdates = {
 
   toggleLogInPage() {
     const logInPage = document.querySelector('.login-form-box');
-    const signedInView = document.querySelector('.signed-in-view')
+    const signedInView = document.querySelector('.signed-in-view');
     logInPage.classList.toggle('hidden');
     signedInView.classList.toggle('hidden');
   },
