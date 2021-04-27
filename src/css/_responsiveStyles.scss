@@ -34,9 +34,6 @@
   }
 
 /* ~~~~~~~~ LOG IN ~~~~~~~~~ */
-  * {
-    background-color: $primary-background;
-  }
 
   .signed-in-view {
     padding: 2%;
@@ -49,6 +46,35 @@
   .spending-wrapper {
     font-size: .7em;
     margin-bottom: 0;
+  }
+
+  .bottom-booking-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 33em;
+    }
+
+  .trip-storage {
+    margin-top: 0;
+  }
+
+  .input-boxes,
+  .drop {
+    display: flex;
+    justify-content: space-around;
+    margin: 3% 5% 3% 2%;
+    padding: 2%;
+    flex-direction: column;
+  }
+
+  .drop-label,
+  .drop {
+    width: 80%;
+  }
+
+  .drop-label {
+    margin-left: 5%;
   }
 
 }
