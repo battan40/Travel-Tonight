@@ -76,7 +76,7 @@ function getTripID() {
 }
 
 function getReservation() {
-  const reservationData = makeBookRequest()
+  const reservationData = makeBookRequest();
   postANewTrip(reservationData);
   domUpdates.resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay);
   fetchCalls(currentTraveler.id);
@@ -100,7 +100,7 @@ function makeBookRequest() {
 
 function validateTripChoice() {
   if (numTravelers.value > 0 && tripDuration.value > 0 && destinationID.value > 0 && startDate.value !== '') {
-    const reservationData = new Trip(makeBookRequest())
+    const reservationData = new Trip(makeBookRequest());
     const estimatedCost = reservationData.calculateTripCostEstimate(allDestinations)
     messageDisplay.innerText = `Estimated Trip cost is $${estimatedCost}`
     bookingButton.disabled = false;
