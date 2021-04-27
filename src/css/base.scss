@@ -4,11 +4,16 @@
 
 /* ~~~~~~~~ LOG IN ~~~~~~~~~ */
 
+* {
+  background-color: $primary-background;
+}
+
 body {
   background: $primary-background;
   font-family: 'Poppins', sans-serif;
   display: grid;
-  height: 90em;
+  grid-template-columns: 1fr;
+  height: 100em;
 }
 
 img {
@@ -18,29 +23,4 @@ img {
 
 .hidden {
   display: none;
-}
-
-.page-title {
-  margin-bottom: 3%;
-}
-
-.image-on-load {
-  height: 60%;
-  margin-top: 4%;
-  margin-bottom: 0;
-}
-.login-form-box {
-  margin: 0 5% 8% 5%;
-}
-
-.welcome {
-  margin-bottom: 2em;
-}
-
-.login-inputs {
-  margin: 1% 5% 7% 5%;
-}
-
-.search-input {
-  margin-bottom: 5%;
 }
