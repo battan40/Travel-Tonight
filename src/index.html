@@ -40,19 +40,25 @@
           <img src="./images/CliffBackGround.png" alt="Partners at the top of a cloudy cliff at dawn">
       </header>
       <section class="bottom-booking-container">
-        <h3>Book A New Getaway</h3>
+        <h3 class="book-header">Book A New Getaway</h3>
         <div class="booking">
-          <label for="start">Choose a Start Date:
-          <input required type="date" id="tripStart" name="begin-trip" min="" max="2025-12-31"aria-describedby="enter the date of your trip by two digit month, two digit day, then four digit year">
-          </label>
-          <label for="duration">Trip Length:
-          <input required class="trip-duration" type="number" min="1"aria-describedby="enter the number of days for your trip">
-          </label>
-          <label for="number-travelers">Number of Travelers:
-          <input required class="number-travelers" type="number" min="1"aria-describedby="enter the number of travelers traveling">
-          </label>
-          <label for="drop">Choose a Destination:
-            <select required class="drop" id="destinationDropDown" aria-describedby="select the destination of your trip, tab through until you reach your choice, then press enter">
+          <article class="input-boxes">
+            <label for="start">Choose a Start Date:
+              <input required type="date" id="tripStart" name="begin-trip" min="" max="2025-12-31"aria-describedby="enter the date of your trip by two digit month, two digit day, then four digit year">
+            </label>
+          </article>
+          <article class="input-boxes">
+            <label for="duration">Trip Length:
+              <input required class="trip-duration" type="number" min="1"aria-describedby="enter the number of days for your trip">
+            </label>
+          </article>
+          <article class="input-boxes">
+            <label for="number-travelers">Number of Travelers:
+              <input required class="number-travelers" type="number" min="1"aria-describedby="enter the number of travelers traveling">
+            </label>
+          </article>
+          <label for="drop-lable">Choose a Destination:
+            <select required class="drop" id="destinationDropDown" aria-describedby="select the destination of your trip, tap the spacebar through until you reach your choice, then press enter">
               <option value="0">choose desination</option>
             </select>
           </label>
