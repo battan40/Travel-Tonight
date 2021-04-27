@@ -42,7 +42,6 @@ class Traveler {
   }
 
   evaluateDateEntry(date) {
-    console.log(date)
     return (!this.todaysDate === date ? false : true)
   }
 

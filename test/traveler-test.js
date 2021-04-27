@@ -7,7 +7,7 @@ import Traveler from '../src/traveler.js'
 import Trip from '../src/trip.js'
 
 describe('Traveler', () => {
-  let traveler1, traveler2, traveler3, allTripData, day;
+  let traveler1, traveler2, allTripData, day;
 
   beforeEach(() => {
     day = new Date().getTime();
@@ -100,7 +100,8 @@ describe('Traveler', () => {
   });
 
   it('should be able to evaluate if the traveler entered a correct date', () => {
-    expect(traveler1.todaysDate).to.deep.equal(day)      expect(traveler1.evaluateDateEntry(day)).to.deep.equal(true);
+    expect(traveler1.todaysDate).to.deep.equal(day)
+    expect(traveler1.evaluateDateEntry(day)).to.deep.equal(true);
   });
 
   it('should calculate past annual trip expenses', () => {
