@@ -7,12 +7,14 @@ import Traveler from '../src/traveler.js'
 import Trip from '../src/trip.js'
 
 describe('Traveler', () => {
-  let traveler1, traveler2, allTripData;
+  let traveler1, traveler2, traveler3, allTripData, day;
 
   beforeEach(() => {
-    traveler1 = new Traveler(travelerData[0]);
-    traveler2 = new Traveler(travelerData[4]);
-    allTripData = tripData.map(trip => new Trip(trip))
+    day = new Date().getTime();
+    traveler1 = new Traveler(travelerData[0], day);
+    traveler2 = new Traveler(travelerData[4], day);
+    allTripData = tripData.map(trip => new Trip(trip));
+
   });
 
   it('should be a function', () => {
@@ -24,14 +26,49 @@ describe('Traveler', () => {
     expect(traveler2).to.be.an.instanceOf(Traveler);
   });
 
-  it('should have an id, name, and traveler type established', ()=> {
+  it('should have an id', () => {
     expect(traveler1.id).to.equal(1);
-    expect(traveler1.name).to.equal('Ham Leadbeater');
-    expect(traveler1.type).to.equal('relaxer');
-
     expect(traveler2.id).to.equal(5);
+  });
+
+  it('should have a name', () => {
+    expect(traveler1.name).to.equal('Ham Leadbeater');
     expect(traveler2.name).to.equal('Tiffy Grout');
+  });
+
+  it('should have a type', () => {
+    expect(traveler1.type).to.equal('relaxer');
     expect(traveler2.type).to.equal('thrill-seeker');
+  });
+
+  it('should have a way to keep track of all trips', () => {
+    expect(traveler1.allTrips).to.deep.equal([]);
+    expect(traveler2.allTrips).to.deep.equal([]);
+  });
+
+  it('should have a way to keep track of trips presently happening', () => {
+    expect(traveler1.present).to.deep.equal([]);
+    expect(traveler2.present).to.deep.equal([]);
+  });
+
+  it('should have a way to keep track of trips coming up', () => {
+    expect(traveler1.upcoming).to.deep.equal([]);
+    expect(traveler2.upcoming).to.deep.equal([]);
+  });
+
+  it('should have a way to keep track of past trips', () => {
+    expect(traveler1.past).to.deep.equal([]);
+    expect(traveler2.past).to.deep.equal([]);
+  });
+
+  it('should have a way to keep track of pending trips', () => {
+    expect(traveler1.pending).to.deep.equal([]);
+    expect(traveler2.pending).to.deep.equal([]);
+  });
+
+  it('should note the date of the travelers trip', () => {
+    expect(traveler1.todaysDate).to.deep.equal(day);
+    expect(traveler2.todaysDate).to.deep.equal(day);
   });
 
   it('should be able to bring in and track all a travlers trips to all their destinations', () => {
@@ -61,6 +98,7 @@ describe('Traveler', () => {
     expect(traveler1.past.length).to.deep.equal(1);
     expect(traveler1.pending.length).to.deep.equal(0);
   });
+
 
   it('should calculate past annual trip expenses', () => {
     traveler1.compileAllTrips(allTripData, destinationData);
