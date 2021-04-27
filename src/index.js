@@ -24,7 +24,7 @@ const logInButton = document.querySelector('.check-for-traveler')
 
 bookingButton.addEventListener('click', getReservation);
 bookingContainer.addEventListener('change', validateTripChoice);
-logInButton.addEventListener('click', verifyCreditialsMatch);
+logInButton.addEventListener('click', verifyCredentialsMatch);
 
 function fetchCalls(id) {
   allTrips = [];
@@ -56,7 +56,7 @@ function makeTraveler() {
   currentTraveler.orderTripsByDate();
 }
 
-function verifyCreditialsMatch() {
+function verifyCredentialsMatch() {
   const passwordInput = document.querySelector('#password');
   const nameInput = document.querySelector('#userNameSearch');
   const logInErrMsg = document.querySelector('#logInMsg');
