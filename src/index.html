@@ -57,11 +57,13 @@
               <input required class="number-travelers" type="number" min="1"aria-describedby="enter the number of travelers traveling">
             </label>
           </article>
-          <label for="drop-lable">Choose a Destination:
-            <select required class="drop" id="destinationDropDown" aria-describedby="select the destination of your trip, tap the spacebar through until you reach your choice, then press enter">
-              <option value="0">choose desination</option>
-            </select>
-          </label>
+          <article class="input-boxes">
+            <label class="drop-down-label" for="drop-lable">Choose a Destination:
+              <select required class="drop" id="destinationDropDown" aria-describedby="select the destination of your trip, tap the spacebar through until you reach your choice, then press enter">
+                <option value="0">choose desination</option>
+              </select>
+            </label>
+          </article>
         </div>
         <p id="domMessage"></p>
         <button class="book-trip" disabled aria-describedby="press enter to select this button to book a trip">Book Trip</button>
