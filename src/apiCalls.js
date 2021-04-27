@@ -11,7 +11,7 @@ const getAllTravelers = () => {
 const getSingleTraveler = (id) => {
   return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
     .then(response => {
-      if(response.ok) {
+      if (response.ok) {
         return  response.json()
       }
     })
@@ -24,7 +24,7 @@ const getSingleTraveler = (id) => {
 const getAllTrips = () => {
   return fetch('http://localhost:3001/api/v1/trips')
     .then(response => {
-      if(response.ok) {
+      if (response.ok) {
         return response.json()
       }
     })
@@ -37,10 +37,10 @@ const getAllTrips = () => {
 const getAllDestinations = () => {
   return fetch('http://localhost:3001/api/v1/destinations')
     .then(response => {
-      if(response.ok) {
+      if (response.ok) {
         return response.json()
-    }
-  })
+      }
+    })
     .then(allDestinationsData => {
       return allDestinationsData.destinations;
     })
@@ -57,7 +57,7 @@ const postANewTrip = (resoData) => {
   }
   return fetch('http://localhost:3001/api/v1/trips', init)
     .then(response => {
-      if(response.ok) {
+      if (response.ok) {
         return response.json()
       }
     })
