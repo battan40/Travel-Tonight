@@ -42,8 +42,7 @@ class Traveler {
   }
 
   evaluateDateEntry(date) {
-
-    return (!this.todaysDate === date ? false : true)
+    return this.todaysDate === date
   }
 
   calculateTripMoneySpentInYear(yearSelected, destinationData) {

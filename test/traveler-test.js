@@ -99,8 +99,11 @@ describe('Traveler', () => {
   });
 
   it('should be able to evaluate if the traveler entered a correct date', () => {
-    expect(traveler1.todaysDate).to.deep.equal(day)
     expect(traveler1.evaluateDateEntry(day)).to.deep.equal(true);
+  });
+
+  it('should evavalute whethere date was entered incorrectly', () => {
+    expect(traveler1.evaluateDateEntry("fail")).to.equal(false);
   });
 
   it('should calculate past annual trip expenses', () => {

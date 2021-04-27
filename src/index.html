@@ -10,11 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Travel Tonight
-      <img id="imgToHide" src="./images/BeachBackGround.png" alt="Beach hut villas under a cloud covered mountain">
-    </h1>
+    <section class="title-container">
+      <h1 class="page-title">Travel Tonight
+        <div class="image-on-load">
+          <img id="imgToHide" src="./images/BeachBackGround.png" alt="Beach hut villas under a cloud covered mountain">
+        </div>
+      </h1>
+    </section>
     <section class="login-form-box">
-      <h1>Welcome, Please sign in</h1>
+      <h1 class="welcome">Welcome</h1>
+        <h2 class="invite-sign-in">Please sign in</h2>
         <article class="login-inputs">
           <label for="user-name" class="login-label" role="search">UserName:
           <input type="text" placeholder="username" id="userNameSearch" class="search-input" aria-describedby="please enter your user name">
@@ -33,30 +38,38 @@
           <h2>Where will you go tonight?<h2>
         </div>
           <img src="./images/CliffBackGround.png" alt="Partners at the top of a cloudy cliff at dawn">
-        <section class="spending-wrapper">
-          <h2 id="spending">Total Spent</h2>
-        </section>
       </header>
       <section class="bottom-booking-container">
-        <h3>Book A New Getaway</h3>
+        <h3 class="book-header">Book A New Getaway</h3>
         <div class="booking">
-          <label for="start">Choose a Start Date:
-          <input required type="date" id="tripStart" name="begin-trip" min="" max="2025-12-31"aria-describedby="enter the date of your trip by two digit month, two digit day, then four digit year">
-          </label>
-          <label for="duration">Trip Length:
-          <input required class="trip-duration" type="number" min="1"aria-describedby="enter the number of days for your trip">
-          </label>
-          <label for="number-travelers">Number of Travelers:
-          <input required class="number-travelers" type="number" min="1"aria-describedby="enter the number of travelers traveling">
-          </label>
-          <label for="drop">Choose a Destination:
-            <select required class="drop" id="destinationDropDown" aria-describedby="select the destination of your trip, tab through until you reach your choice, then press enter">
-              <option value="0">choose desination</option>
-            </select>
-          </label>
+          <article class="input-boxes">
+            <label for="start">Choose a Start Date:
+              <input required type="date" id="tripStart" name="begin-trip" min="" max="2025-12-31"aria-describedby="enter the date of your trip by two digit month, two digit day, then four digit year">
+            </label>
+          </article>
+          <article class="input-boxes">
+            <label for="duration">Trip Length:
+              <input required class="trip-duration" type="number" min="1"aria-describedby="enter the number of days for your trip">
+            </label>
+          </article>
+          <article class="input-boxes">
+            <label for="number-travelers">Number of Travelers:
+              <input required class="number-travelers" type="number" min="1"aria-describedby="enter the number of travelers traveling">
+            </label>
+          </article>
+          <article class="input-boxes">
+            <label class="drop-down-label" for="drop-lable">Choose a Destination:
+              <select required class="drop" id="destinationDropDown" aria-describedby="select the destination of your trip, tap the spacebar through until you reach your choice, then press enter">
+                <option value="0">choose desination</option>
+              </select>
+            </label>
+          </article>
         </div>
         <p id="domMessage"></p>
         <button class="book-trip" disabled aria-describedby="press enter to select this button to book a trip">Book Trip</button>
+      <section class="spending-wrapper">
+        <h2 id="spending">Total Spent</h2>
+      </section>
       </section>
       <section class="trip-storage">
         <h2 id="typeOfTrip">Trips To Look Forward To:</h2>

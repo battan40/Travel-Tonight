@@ -1,0 +1,103 @@
+@media screen and(max-width: 1341px) {
+  .page-title {
+    font-size: 2.8em;
+    margin-bottom: 0 0 2.6em .3em;
+  }
+
+  .book-header {
+    font-size: 2.7em;
+  }
+
+  .welcome {
+    font-size: 2.7em;
+  }
+
+  .image-on-load {
+    height: 35%;
+    margin-top: 4%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .book-header {
+    font-size: 2.4em;
+  }
+}
+
+@media screen and (max-width: 611px) {
+  .book-header {
+    font-size: 2.3em;
+  }
+}
+
+/* ~~~~~~~~ LOG IN ~~~~~~~~~ */
+
+@media screen and (max-width: 320px) {
+
+  .page-title {
+    margin-bottom: 0 0 2em .3em;
+    font-size: $size;
+  }
+
+  .login-form-box {
+    margin: 0 5% 8% 5%;
+  }
+
+  .welcome {
+    margin-bottom: $size;
+    font-size: 1.8em;
+  }
+
+  .invite-sign-in {
+    margin-bottom: $size;
+  }
+
+  .login-inputs {
+    margin: 1% 5% 7% 5%;
+  }
+
+  .search-input {
+    margin-bottom: $size;
+  }
+
+/* ~~~~~~~~MAIN~~~~~~~~~ */
+
+  .signed-in-view {
+    padding: 2%;
+  }
+
+  .book-header {
+    font-size: 1.8em;
+  }
+
+  .spending-wrapper {
+    font-size: .7em;
+    margin-bottom: 0;
+  }
+
+  .booking {
+   @include displayFlexColumnCenter();
+    width: 80vw;
+  }
+
+  .bottom-booking-container {
+    @include displayFlexColumnCenter();
+    height: fit-content;
+  }
+
+  .trip-storage {
+    margin-top: 0;
+  }
+
+  .input-boxes,
+  .drop {
+    @include displayFlexColumnCenter();
+    margin: 3% 5% 3% 2%;
+    padding: 2%;
+  }
+
+  .drop {
+    width: 80%;
+  }
+}

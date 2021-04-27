@@ -24,7 +24,7 @@ const logInButton = document.querySelector('.check-for-traveler')
 
 bookingButton.addEventListener('click', getReservation);
 bookingContainer.addEventListener('change', validateTripChoice);
-logInButton.addEventListener('click', verifyCreditialsMatch);
+logInButton.addEventListener('click', verifyCredentialsMatch);
 
 function fetchCalls(id) {
   allTrips = [];
@@ -56,7 +56,7 @@ function makeTraveler() {
   currentTraveler.orderTripsByDate();
 }
 
-function verifyCreditialsMatch() {
+function verifyCredentialsMatch() {
   const passwordInput = document.querySelector('#password');
   const nameInput = document.querySelector('#userNameSearch');
   const logInErrMsg = document.querySelector('#logInMsg');
@@ -76,7 +76,7 @@ function getTripID() {
 }
 
 function getReservation() {
-  const reservationData = makeBookRequest()
+  const reservationData = makeBookRequest();
   postANewTrip(reservationData);
   domUpdates.resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay);
   fetchCalls(currentTraveler.id);
@@ -100,7 +100,7 @@ function makeBookRequest() {
 
 function validateTripChoice() {
   if (numTravelers.value > 0 && tripDuration.value > 0 && destinationID.value > 0 && startDate.value !== '') {
-    const reservationData = new Trip(makeBookRequest())
+    const reservationData = new Trip(makeBookRequest());
     const estimatedCost = reservationData.calculateTripCostEstimate(allDestinations)
     messageDisplay.innerText = `Estimated Trip cost is $${estimatedCost}`
     bookingButton.disabled = false;
