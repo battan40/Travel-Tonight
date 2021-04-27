@@ -1,16 +1,44 @@
+@media screen and(max-width: 1341px) {
+  .page-title {
+    font-size: 2.8em;
+    margin-bottom: 0 0 2.6em .3em;
+  }
+
+  .book-header {
+    font-size: 2.7em;
+  }
+
+  .welcome {
+    font-size: 2.7em;
+  }
+
+  .image-on-load {
+    height: 35%;
+    margin-top: 4%;
+    margin-bottom: 0;
+  }
+
+}
+
+@media screen and (max-width: 834px) {
+  .book-header {
+    font-size: 2.4em;
+  }
+}
+
+@media screen and (max-width: 611px) {
+  .book-header {
+    font-size: 2.3em;
+  }
+}
+
 /* ~~~~~~~~ MAIN ~~~~~~~~~ */
 
 @media screen and (max-width: 320px) {
 
   .page-title {
-    font-zize: 2.2em;
     margin-bottom: 0 0 2em .3em;
-  }
-
-  .image-on-load {
-    height: 60%;
-    margin-top: 4%;
-    margin-bottom: 0;
+    font-size: 2em;
   }
 
   .login-form-box {
@@ -18,7 +46,8 @@
   }
 
   .welcome {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
+    font-size: 2em;
   }
 
   .invite-sign-in {
@@ -48,11 +77,18 @@
     margin-bottom: 0;
   }
 
+  .booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+  }
+
   .bottom-booking-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 33em;
+      height: fit-content;
     }
 
   .trip-storage {
@@ -68,13 +104,8 @@
     flex-direction: column;
   }
 
-  .drop-label,
   .drop {
     width: 80%;
-  }
-
-  .drop-label {
-    margin-left: 5%;
   }
 
 }
