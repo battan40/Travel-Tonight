@@ -1,11 +1,13 @@
 import './css/base.scss';
+
 import './images/BeachBackGround.png';
 import './images/CliffBackGround.png';
-import './images/TealForestBackground.png';
+
 import Traveler from './traveler.js';
 import Trip from './trip.js';
 import Destination from './destination.js'
 import domUpdates from './domUpdates.js'
+
 import { getSingleTraveler, getAllTrips, getAllDestinations, postANewTrip } from './apiCalls.js';
 
 let currentTraveler, today;
