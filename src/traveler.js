@@ -1,5 +1,5 @@
 class Traveler {
-  constructor(travelerData) {
+  constructor(travelerData, date) {
     this.id = travelerData.id;
     this.name = travelerData.name;
     this.type = travelerData.travelerType;
@@ -8,7 +8,7 @@ class Traveler {
     this.upcoming = [];
     this.past = [];
     this.pending = [];
-    this.todaysDate = new Date().getTime();
+    this.todaysDate = date;
   }
 
   compileAllTrips(trips, destinations) {
@@ -39,6 +39,11 @@ class Traveler {
         this.pending.push(trip)
       }
     })
+  }
+
+  evaluateDateEntry(date) {
+    console.log(date)
+    return (!this.todaysDate === date ? false : true)
   }
 
   calculateTripMoneySpentInYear(yearSelected, destinationData) {

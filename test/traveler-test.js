@@ -99,6 +99,9 @@ describe('Traveler', () => {
     expect(traveler1.pending.length).to.deep.equal(0);
   });
 
+  it('should be able to evaluate if the traveler entered a correct date', () => {
+    expect(traveler1.todaysDate).to.deep.equal(day)      expect(traveler1.evaluateDateEntry(day)).to.deep.equal(true);
+  });
 
   it('should calculate past annual trip expenses', () => {
     traveler1.compileAllTrips(allTripData, destinationData);
