@@ -79,22 +79,13 @@ const domUpdates = {
 
   destinationDropDownForBooking() {
     const dropDownList = document.querySelector('#destinationDropDown');
-    this.allDestinations.sort((one, two) => {
-      let destinationOne = one.destination;
-      let destinationTwo = two.destination;
-      if (destinationOne < destinationTwo) {
-        return -1;
-      } else if (destinationTwo > destinationOne) {
-        return 1;
-      } else {
-        return 0
-      }
-    });
-    let locationsToBook = '';
-    this.allDestinations.forEach(destination => {
-      locationsToBook += `<option value="${destination.id}">${destination.destination}</option>`
+    let alphabetizeDropDown = this.allDestinations.map(destination => destination.destination).sort();
+    alphabetizeDropDown.forEach(nameOrder => {
+      const foundDestination = this.allDestinations.find(place => {
+        return place.destination === nameOrder
+      })
+      dropDownList.insertAdjacentHTML('afterbegin', `<option value="${foundDestination.id}">${nameOrder}</option>`)
     })
-    dropDownList.insertAdjacentHTML('beforeend', locationsToBook)
   },
 
   resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay) {
