@@ -14,7 +14,6 @@ describe('Traveler', () => {
     traveler1 = new Traveler(travelerData[0], day);
     traveler2 = new Traveler(travelerData[4], day);
     allTripData = tripData.map(trip => new Trip(trip));
-
   });
 
   it('should be a function', () => {
