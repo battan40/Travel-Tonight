@@ -2,6 +2,8 @@
 @import './_variables';
 @import './_responsiveStyles';
 
+/* ~~~~~~~~ LOG IN ~~~~~~~~~ */
+
 body {
   background: $primary-background;
   font-family: 'Poppins', sans-serif;
@@ -26,4 +28,19 @@ img {
   height: 60%;
   margin-top: 4%;
   margin-bottom: 0;
+}
+.login-form-box {
+  margin: 0 5% 8% 5%;
+}
+
+.welcome {
+  margin-bottom: 2em;
+}
+
+.login-inputs {
+  margin: 1% 5% 7% 5%;
+}
+
+.search-input {
+  margin-bottom: 5%;
 }
