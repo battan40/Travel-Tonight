@@ -1,0 +1,12 @@
+@media screen and (max-width: 320px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "image"
+      "main"
+}
+
+.signed-in-view {
+  hieght: 100%;
+  background: $primary-background;
+}
