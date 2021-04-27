@@ -21,10 +21,12 @@ const domUpdates = {
   },
 
   toggleLogInPage() {
+    const firstImage = document.querySelector('#imgToHide')
     const logInPage = document.querySelector('.login-form-box');
     const signedInView = document.querySelector('.signed-in-view');
     logInPage.classList.toggle('hidden');
     signedInView.classList.toggle('hidden');
+    firstImage.classList.add('hidden');
   },
 
   createDateStopInCalendar() {
@@ -58,7 +60,7 @@ const domUpdates = {
       currentTraveler.allTrips.forEach(trip => {
         const specificDestination = this.allDestinations.find(destination => destination.id === trip.destinationID)
         const showDate = this.userFriendlyDateDisplay(trip.date)
-        tripDetails += `
+        tripDisplay.insertAdjacentHTML('beforeend', `
       <article class="trip-cards">
         <div class="image-wrapper">
         <img class="unique-trip-image" src="${specificDestination.image}" alt="${specificDestination.alt}"
@@ -68,33 +70,22 @@ const domUpdates = {
         <h4>How Many Are Going:  ${trip.travelerCount}</h4>
         <h4>Duration:  ${trip.duration}</h4>
         <h4>Status:  ${trip.status}</h4>
-      </article>`;
+      </article>`);
       })
     } else {
-      tripDetails = `
-    <h3 class="no-current-bookings">You Do not have any trips at this time</h3>`
+      tripDetails.insertAdjacentHTML('beforeend', `<h3 class="no-current-bookings">You Do not have any trips at this time</h3>`)
     }
-    tripDisplay.insertAdjacentHTML('beforeend', tripDetails)
   },
 
   destinationDropDownForBooking() {
     const dropDownList = document.querySelector('#destinationDropDown');
-    this.allDestinations.sort((one, two) => {
-      let destinationOne = one.destination;
-      let destinationTwo = two.destination;
-      if (destinationOne < destinationTwo) {
-        return -1;
-      } else if (destinationTwo > destinationOne) {
-        return 1;
-      } else {
-        return 0
-      }
-    });
-    let locationsToBook = '';
-    this.allDestinations.forEach(destination => {
-      locationsToBook += `<option value="${destination.id}">${destination.destination}</option>`
+    let alphabetizeDropDown = this.allDestinations.map(destination => destination.destination).sort();
+    alphabetizeDropDown.forEach(nameOrder => {
+      const foundDestination = this.allDestinations.find(place => {
+        return place.destination === nameOrder
+      })
+      dropDownList.insertAdjacentHTML('afterbegin', `<option value="${foundDestination.id}">${nameOrder}</option>`)
     })
-    dropDownList.insertAdjacentHTML('beforeend', locationsToBook)
   },
 
   resetTripRequestSection(numTravelers, tripDuration, destinationID, tripStart, messageDisplay) {
