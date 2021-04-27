@@ -4,13 +4,12 @@ import tripData from './test-data/trip-data.js'
 import destinationData from './test-data/destination-data.js'
 import Trip from '../src/trip.js'
 
-
 describe('Trip', () => {
   let trip1, trip2;
 
   beforeEach(() => {
     trip1 = new Trip(tripData[0], destinationData[5]);
-    trip2 = new Trip(tripData[1], destinationData[6])
+    trip2 = new Trip(tripData[1], destinationData[6]);
   });
 
   it('should be a function', () => {
@@ -63,7 +62,6 @@ describe('Trip', () => {
     expect(trip2.cost).to.equal(4152.5);
   });
 
-
   it('should be able to locate trip start and end date', () => {
     trip1.seekTripDuration();
     expect(trip1.startDate).to.equal(1568613600000);
@@ -71,4 +69,5 @@ describe('Trip', () => {
     trip2.seekTripDuration();
     expect(trip1.startDate).to.equal(1568613600000);
   });
+
 });
