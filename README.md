@@ -23,3 +23,27 @@ This project builds a travel booking app from scratch using new technologies gai
 * Work with `API` to send and receive data
 * Solidify code review process
 * Create a robust test suite that tests all functionality of the app's client-side
+
+## Setup
+
+1. Clone down this repository
+2. Using your command line, install dependencies by running `npm install`
+3. Get your local server going by running `npm start`
+4. In a separate directory and terminal tab clone down [https://github.com/turingschool-examples/travel-tracker-api]
+5. Follow the instructions from the travel-tracker-api to get the server active
+6. To view the page enter `http://localhost:8080/`
+
+* To run tests enter `npm test` from the command line
+* To run lint enter `npm run lint` from the command line
+
+## Projects and Goals
+
+* Use `OPP` to drive the design of the app and the code modularity
+* `Fetch()`, `POST` and manipulate `API` data from the server consider
+* Utilize `SCSS` as a default to streamline `CSS` styling
+* App should be fully responsive
+* Optimize accessibility to 100%
+* Unit test sad/happy path for app functionality check and balance system
+* Lighthouse score of 100% with accessibility considerations for UX/UI
+* Semantic `HTML` for optimal accessibility
+* Fetch request error handling for UX empathy
