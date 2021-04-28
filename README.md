@@ -1,105 +1,68 @@
-# Webpack Starter Kit
+# Travel Tonight
 
-## Clone This Repo
+*Work on this project has slowed or stopped completely. Deadline 4/27/2021, 9pm MST.*
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+## Technologies Used
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+* `JavaScript`
+* `HTML`
+* `SCSS`
+* `TDD with Mocha and Chai`
+* `ARIA`
+* `Webpack`
+* `ES6 Fetch()`
+* `ES6 POST`
 
-Now try to commit something and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+## OverView
+
+This project builds a travel booking app from scratch using new technologies gained this module. The intention behind the build was to gain experience with `ES6` `fetch()` and `POST` with error handling, and considerations for responsive accessibility.  Otherwise it was a chance to display my use of `OPP`, `TDD` and organization of data pulled in through `API`'s.
+
+## Goals and Objectives
+
+* Build app from the ground up
+* Work with `API` to send and receive data
+* Solidify code review process
+* Create a robust test suite that tests all functionality of the app's client-side
 
 ## Setup
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
+1. Clone down this repository
+2. Using your command line, install dependencies by running `npm install`
+3. Get your local server going by running `npm start`
+4. In a separate directory and terminal tab clone down [https://github.com/turingschool-examples/travel-tracker-api]
+5. Follow the instructions from the travel-tracker-api to get the server active
+6. To view the page enter `http://localhost:8080/`
 
-Then install the library dependencies. Run:
+* To run tests enter `npm test` from the command line
+* To run lint enter `npm run lint` from the command line
 
-```bash
-npm install
-```
+## Projects and Goals
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text, Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+* Use `OPP` to drive the design of the app and the code modularity
+* `Fetch()`, `POST` and manipulate `API` data from the server consider
+* Utilize `SCSS` as a default to streamline `CSS` styling
+* App should be fully responsive
+* Optimize accessibility to 100%
+* Unit test sad/happy path for app functionality check and balance system
+* Lighthouse score of 100% with accessibility considerations for UX/UI
+* Semantic `HTML` for optimal accessibility
+* Fetch request error handling for UX empathy
 
-## Where to Add Your Code
+## Road Map
+##### *Future iterations should include:*
 
-### JavaScript
+* Traveler dashboard should display a countdown to my next trip (if there is one)
+* Allow the travel agent/agency to POST suggested activities for pending trips
+* Allow the travel agen tto create new destinations
+* Utilize an `npm package` for further presentation enhancement
+* A more gripping design interface to hold to the travel agencies branding
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
+## Preview
 
-**Create all of your feature code files in the `src` directory.**
+* [Preview](https://media.giphy.com/media/BrbBFeOsHNKQj6CBNK/giphy.gif)
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+## Deployed Site
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
+## Contributor
 
-### HTML
-
-Add the HTML you need in the `index.html` file in the `./src` directory. There is some boilerplate HTML that exists from the start that you can modify.
-
-### CSS (SCSS/SASS)
-
-This project is setup to use SCSS/SASS files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
-
-This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
-
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`index.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+* [Angela Battillo](https://github.com/battan40)
