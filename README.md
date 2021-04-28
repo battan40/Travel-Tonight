@@ -59,7 +59,7 @@ This project builds a travel booking app from scratch using new technologies gai
 
 ## Preview
 
-* [Preview](https://media.giphy.com/media/BrbBFeOsHNKQj6CBNK/giphy.gif)
+* ![Preview](https://media.giphy.com/media/BrbBFeOsHNKQj6CBNK/giphy.gif)
 
 ## Deployed Site
 
