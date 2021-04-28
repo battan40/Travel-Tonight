@@ -61,8 +61,6 @@ This project builds a travel booking app from scratch using new technologies gai
 
 * ![Preview](https://media.giphy.com/media/BrbBFeOsHNKQj6CBNK/giphy.gif)
 
-## Deployed Site
-
 ## Contributor
 
 * [Angela Battillo](https://github.com/battan40)
