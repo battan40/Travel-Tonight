@@ -47,3 +47,20 @@ This project builds a travel booking app from scratch using new technologies gai
 * Lighthouse score of 100% with accessibility considerations for UX/UI
 * Semantic `HTML` for optimal accessibility
 * Fetch request error handling for UX empathy
+
+## Road Map
+##### *Future iterations should include:*
+
+* Traveler dashboard should display a countdown to my next trip (if there is one)
+* Allow the travel agent/agency to POST suggested activities for pending trips
+* Allow the travel agen tto create new destinations
+* Utilize an `npm package` for further presentation enhancement
+* A more gripping design interface to hold to the travel agencies branding
+
+## Preview
+
+## Deployed Site
+
+## Contributor
+
+* [Angela Battillo](https://github.com/battan40)
