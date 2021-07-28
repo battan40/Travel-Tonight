@@ -32,6 +32,7 @@ This project builds a travel booking app from scratch using new technologies gai
 4. In a separate directory and terminal tab clone down [https://github.com/turingschool-examples/travel-tracker-api]
 5. Follow the instructions from the travel-tracker-api to get the server active
 6. To view the page enter `http://localhost:8080/`
+7. Your userName: `traveler50` Your password: `travel2020`
 
 * To run tests enter `npm test` from the command line
 * To run lint enter `npm run lint` from the command line
